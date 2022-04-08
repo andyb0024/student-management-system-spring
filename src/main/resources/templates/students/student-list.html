@@ -65,7 +65,7 @@
                 <td>[[${student.lname}]]</td>
                 <td>[[${student.promotion}]]</td>
                 <td>
-                    <a href="" class="btn btn-secondary">Edit</a>
+                    <a th:href="@{'/student/edit/' +${student.id}} " class="btn btn-secondary">Edit</a>
                     <a href="" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

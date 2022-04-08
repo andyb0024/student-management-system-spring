@@ -13,11 +13,14 @@
     background-color:#A46C4A!important;
     color:#fff;
     font-size:25px;
+
     }
+    .my-btn:hover {opacity: 1}
 
 .cancel-btn{
 border-radius:30px;
 }
+
 
 </style>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#A46C4A;">
@@ -64,15 +67,17 @@ border-radius:30px;
                             <div class="col-xl-6">
                                 <div class="card-body p-md-5 text-black">
                                     <h3 align="center" class="mb-5 text-uppercase">Student registration form</h3>
+                                    <h2>[[${pageTitle}]]</h2>
 
 
                                     <form th:action="@{/students/save}" method="post" th:object="${student}">
 
-
+                                        <input type="hidden" th:field="*{id}">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example1m">First name</label>
                                             <input type="text" th:field="*{fname}"
-                                                   class="form-control form-control-lg" required="required" minlength="4" maxlength="30">
+                                                   class="form-control form-control-lg" required="required"
+                                                   minlength="4" maxlength="30">
 
                                         </div>
 
@@ -80,17 +85,21 @@ border-radius:30px;
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example1m">Last name</label>
                                             <input type="text" th:field="*{lname}"
-                                                   class="form-control form-control-lg" required="required" minlength="4" maxlength="30"  oninput="this.value = this.value.replace(/[^a-z]/, '')">
+                                                   class="form-control form-control-lg" required="required"
+                                                   minlength="4" maxlength="30"
+                                                   oninput="this.value = this.value.replace(/[^a-z]/, '')">
                                         </div>
 
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example8">Promotion</label>
                                             <input type="number" th:field="*{promotion}" id="form3Example8"
-                                                   class="form-control form-control-lg" required="required" />
+                                                   class="form-control form-control-lg" required="required"/>
 
                                             <div class="d-flex justify-content-end pt-3">
-                                                <button type="button" class="btn btn-dark btn-lg px-5 cancel-btn">Cancel</button>
+                                                <button type="button" class="btn btn-dark btn-lg px-5 cancel-btn">
+                                                    Cancel
+                                                </button>
                                                 <button type="submit" class="btn btn-lg ms-2 px-5 my-btn"
                                                 >
                                                     submit

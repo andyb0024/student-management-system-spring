@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -18,5 +19,13 @@ public class StudentService {
 
     public Student saveStudent(Student student){
         return studentRepository.save(student);
+    }
+
+   public Student get(Integer id) throws StudentNotFoundException {
+       Optional<Student> result=studentRepository.findById(id);
+        if (result.isPresent()){
+            return result.get();
+        }
+        throw new StudentNotFoundException("could not found user with " +id);
     }
 }
